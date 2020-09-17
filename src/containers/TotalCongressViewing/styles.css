@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
+.totalCongressViewing {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 70vh;
+  align-content: center;
+}
+
+.totalCongressViewing > div{
+  flex: 1;
+}
+
+.totalCongressViewing .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.totalCongressViewing .graphs,
+.totalCongressViewing .description {
+  font-family: 'Merriweather', serif;
+}
+
+.totalCongressViewing .descriptionNumber {
+  color: #dcdb52;
+  font-weight: bold;
+  font-size: 6rem;
+  margin-bottom: 8px;
+}
+
+.totalCongressViewing .graphDescription,
+.totalCongressViewing .descriptionText {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  max-width: 300px;
+}
+
+.totalCongressViewing .graphs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.totalCongressViewing .graphs span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.totalCongressViewing .graphItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

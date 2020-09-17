@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
+.projectionGroups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 70vh;
+  align-content: center;
+}
+
+.projectionGroups > div{
+  flex: 1;
+}
+
+.projectionGroups .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.projectionGroups .graphs,
+.projectionGroups .description {
+  font-family: 'Merriweather', serif;
+}
+
+.projectionGroups .descriptionNumber {
+  color: #dd6452;
+  font-weight: bold;
+  font-size: 6rem;
+  margin-bottom: 8px;
+}
+
+.projectionGroups .descriptionText span {
+  color: #dd6452;
+  font-weight: bold;
+}
+
+.projectionGroups .graphDescription,
+.projectionGroups .descriptionText,
+.projectionGroups .graphItem span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  max-width: 300px;
+}
+
+.projectionGroups .graphItem span {
+  text-align: center;
+}
+
+.projectionGroups .graphs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.projectionGroups .graphs span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.projectionGroups .graphItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
+.groupEvangelicWhite {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 70vh;
+  align-content: center;
+}
+
+.groupEvangelicWhite > div{
+  flex: 1;
+}
+
+.groupEvangelicWhite .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.groupEvangelicWhite .graphs,
+.groupEvangelicWhite .description {
+  font-family: 'Merriweather', serif;
+}
+
+.groupEvangelicWhite .descriptionNumber {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 6rem;
+  margin-bottom: 8px;
+}
+
+.groupEvangelicWhite .graphDescription,
+.groupEvangelicWhite .descriptionText,
+.groupEvangelicWhite .graphItem span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  max-width: 300px;
+}
+
+.groupEvangelicWhite .graphItem span {
+  text-align: center;
+}
+
+.groupEvangelicWhite .graphs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.groupEvangelicWhite .graphs span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.groupEvangelicWhite .graphItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

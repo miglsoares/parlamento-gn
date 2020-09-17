@@ -1,69 +1,53 @@
-import React from 'react'
-import 'd3-parliament'
+import React, {useRef, useEffect} from 'react'
+import './d3-parliament'
 import * as d3 from 'd3'
 
 import './styles.css'
 
-const CongressChart = () => {
-  const width = 600
-  const height = 500
-  
-  var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
+const CongressChart = ({width, height, data}) => {
+  const ref = useRef(null)
+
+  const congressId = `congress-${Math.floor(Math.random() * (10 - 1)) + 1}`
+
+  useEffect(() => {
+
+    const svg = d3.select(ref.current);
 
   /* set up the parliament */
   var parliament = d3.parliament();
   parliament.width(width).height(height).innerRadiusCoef(0.5);
 
-  // Define the div for the tooltip
-var div = d3.select("body").append("div")	
-.attr("class", "tooltip")				
-.style("opacity", 0);
+    // Define the div for the tooltip
+  var div = d3.select(ref.current).append("div")	
+  .attr("class", "tooltip")
+  .style("opacity", 0);
 
-  /* register event listeners */
-  // parliament.on("click", function(d) { alert("You clicked on " + d.party.nome + " of " + d.party.partido); }); 
-  // parliament.on("mouseover", function(d) {
-  // //d3.selectAll('circle').attr('opacity', 0.2);
-  //   d3.select(this).attr('stroke', d => cor(d.party.partido)).attr('stroke-width',4);
-  // });
-  // parliament.on("mouseout", function(d) {
-  //   d3.select(this).attr('stroke', d => cor(d.party.partido)).attr('stroke-width',0);
-  // });
-
-  parliament.on("mouseover", function(d) {		
-    div.transition()		
-        .duration(200)		
+  parliament.on("mouseover", function(d) {
+    div.transition()
+        .duration(200)
         .style("opacity", .9)
         .attr('stroke-width',4);
-    div.html(d.party.nome + "<br/>"  + d.party.partido)	
-        .style("left", (d3.event.pageX) + "px")		
-        .style("top", (d3.event.pageY - 28) + "px");	
+    div.html(d.party.nome + "<br/>"  + d.party.partido + "/" + d.party.estado + "<br/>" + d.party.cargo)
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
     });
-    parliament.on("mouseout", function(d) {		
-    div.transition()		
-        .duration(500)		
+    parliament.on("mouseout", function(d) {
+    div.transition()
+        .duration(500)
         .style("opacity", 0)
         .attr('stroke-width',0);
     });
   
-  
-  const cor = d3.scaleOrdinal()
-  
-  return (
-    d3.json("data.json", function(d) {
-    
-      const partidos = d3.map(d, d => d.partido).keys()
+      svg.data([data])
+        .call(parliament);
+          d3.select(`${congressId}`)
+            .selectAll('circle')
+            .attr('fill', d => '#4d4d4d')
 
-      console.log(partidos);
-      const cores = ['gray']
-      cor.domain(partidos)
-         .range(cores)
-      
-      svg.datum(d).call(parliament);
-      d3.selectAll('svg circle')
-        .attr('fill', d => cor(d.party.partido)) 
-    })
+  }, [data, height, width, congressId])
+
+  return (
+    <svg ref={ref} width={width} height={height} />
   )
 };
 
