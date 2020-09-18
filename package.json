@@ -15,7 +15,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-script-tag": "^1.1.2",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "react-scrollama": "^2.2.12"
   },
   "scripts": {
     "start": "react-scripts start",

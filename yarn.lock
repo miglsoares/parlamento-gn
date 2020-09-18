@@ -9115,6 +9115,11 @@ react-scripts@3.4.3:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-scrollama@^2.2.12:
+  version "2.2.12"
+  resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.2.12.tgz#67b75a7f36d01768e2cf6d6c726a060006045757"
+  integrity sha512-IyjfuLaemXwJF8hdzWvf9HtusjUgGunidRpS6hWMuRC6RG1tDe+xPJ5W9LVo3Ag+6OSbGc84rr0bOeA9jZI2CQ==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

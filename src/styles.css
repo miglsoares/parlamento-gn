@@ -1,5 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+
 body {
   margin: 82px;
   padding: 0;
   background-color: #3d3d3d;
+  font-family: 'Merriweather', serif;
+}
+
+.paragraph {
+  color: #ffffff;
+  font-size: 17px;
+  line-height: 1.5;
+  max-width: 500px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 400px 0
+}
+
+.descriptionNumber {
+  font-weight: bold;
+  font-size: 6rem;
+  margin-bottom: 8px;
+}
+
+.graphDescription,
+.descriptionText {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+  max-width: 300px;
+}
+
+.graphs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.graphs span {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.graphItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,8 +1,6 @@
 import React from 'react'
 import BubbleChart from '../../components/BubbleChart';
 
-import './styles.css';
-
 const ParticipantReligionFPE = data => {
   const { data: graphData } = data
 
@@ -14,9 +12,6 @@ const ParticipantReligionFPE = data => {
 
   return (
     <div className="participantReligionFPE">
-      <div className="description">
-        <p className="descriptionText">Na <span>Frente Parlamentar Evangélica</span>, a religião dos participantes é</p>
-      </div>
       <div className="graphs">
         <div className="graphItem">
           <BubbleChart width={500} height={400} data={totalEvangelicos} />
