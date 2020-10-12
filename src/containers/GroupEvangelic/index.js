@@ -1,18 +1,21 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart';
+import BubbleChartWithHighlight from '../../components/BubbleChartWithHighlight'
 
-const GroupEvangelic = data => {
-  const { data: graphData } = data
+const GroupEvangelic = ({totalDeputados, totalSenadores, bubblesWidth, bubblesHeight}) => {
+  const deputadosProjection = totalDeputados.filter((pessoa) => pessoa.projecao === true);
 
-  const totalTresFrentes = graphData.filter((pessoa) => pessoa.carreiraParlamentar === 'projeção' && pessoa.confessionalidade2 === 'Evangélico');
+  const senadoresProjection = totalSenadores.filter((pessoa) => pessoa.projecao === true);
 
+  const projectionGroups = [].concat(deputadosProjection, senadoresProjection);
+
+  const evangelicPeople = projectionGroups.filter((pessoa) => pessoa.religiao === 'Evangélico')
+  
   return (
     <div className="groupEvangelic">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalTresFrentes} />
-          <span>57%</span>
-          <span>são evangélicos</span>
+          <BubbleChartWithHighlight width={bubblesWidth} height={bubblesHeight} color="#b76f2b" data={projectionGroups} highlight={evangelicPeople} />
+          <span>57% são evangélicos</span>
         </div>
       </div>
     </div>

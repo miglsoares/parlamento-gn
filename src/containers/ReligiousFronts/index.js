@@ -1,24 +1,23 @@
 import React from 'react'
 import CongressChart from '../../components/CongressChart'
 
-const ReligiousFronts = data => {
-  const { data: graphData } = data
+const ReligiousFronts = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
 
-  const totalDeputados = graphData.filter((pessoa) => pessoa.cargo === "DEPUTADO");
-  const totalSenadores = graphData.filter((pessoa) => pessoa.cargo === "SENADOR");
+  const deputadosReligiousFronts = totalDeputados.filter((pessoa) => pessoa.FPC === true || pessoa.FPE === true || pessoa.FPMA === true);
+  const senadoresReligiousFronts = totalSenadores.filter((pessoa) => pessoa.FPC === true || pessoa.FPE === true || pessoa.FPMA === true);
   
   return (
     <div className="religiousFronts">
       <div className="graphs">
         <div className="graphItem">
-          <CongressChart width={400} height={250} data={totalDeputados}/>
-          <span>xx</span>
-          <span>deputados federais</span>
+          <CongressChart width={deputadosWidth} height={deputadosHeight} data={totalDeputados} highlight={deputadosReligiousFronts} />
+          <span>{deputadosReligiousFronts.length} <br/>deputados federais</span>
+          <p>(Inclui parlamentares fora de exercício) </p>
         </div>
         <div className="graphItem">
-          <CongressChart width={400} height={250} data={totalSenadores} />
-          <span>xx</span>
-          <span>senadores</span>
+          <CongressChart width={senadoresWidth} height={senadoresHeight} data={totalSenadores} highlight={senadoresReligiousFronts} />
+          <span>{senadoresReligiousFronts.length}<br/>senadores</span>
+          <p>(Inclui parlamentares fora de exercício) </p>
         </div>
       </div>
     </div>

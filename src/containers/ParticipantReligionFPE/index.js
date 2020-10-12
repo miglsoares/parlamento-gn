@@ -1,32 +1,25 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart';
+import CongressChart from '../../components/CongressChart';
 
-const ParticipantReligionFPE = data => {
-  const { data: graphData } = data
+const ParticipantReligionFPE = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
+  const deputadosFE = totalDeputados.filter((pessoa) => pessoa.FPE === true);
 
-  const totalCatolicos = graphData.filter((pessoa) => pessoa.FPE === true && pessoa.confessionalidade === 'Católica');
+  const senadoresFE = totalSenadores.filter((pessoa) => pessoa.FPE === true);
 
-  const totalEvangelicos = graphData.filter((pessoa) => pessoa.FPE === true && pessoa.confessionalidade2 === 'Evangélico');
+  const totalDeputadosEvangelicos = deputadosFE.filter((pessoa) => pessoa.religiao === 'Evangélico');
 
-  const totalOutrasReligioes = graphData.filter((pessoa) => pessoa.FPE === true && pessoa.confessionalidade2 !== 'Evangélico');
+  const totalSenadoresEvangelicos = senadoresFE.filter((pessoa) => pessoa.religiao === 'Evangélico');
 
   return (
     <div className="participantReligionFPE">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalEvangelicos} />
-          <span>47%</span>
-          <span>são evangélicos</span>
+          <CongressChart width={deputadosWidth} height={deputadosHeight} color="#736431" data={totalDeputados} highlight={deputadosFE} stroke={totalDeputadosEvangelicos} />
+          <div className="spacing"></div>
         </div>
         <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalCatolicos} />
-          <span>43%</span>
-          <span>são católicos</span>
-        </div>
-        <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalOutrasReligioes} />
-          <span>10%</span>
-          <span>outras religiões</span>
+          <CongressChart width={senadoresWidth} height={senadoresHeight} color="#736431" data={totalSenadores} highlight={senadoresFE} stroke={totalSenadoresEvangelicos} />
+          <div className="spacing"></div>
         </div>
       </div>
     </div>

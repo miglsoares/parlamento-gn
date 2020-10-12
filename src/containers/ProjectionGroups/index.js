@@ -1,20 +1,21 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart';
+import CongressChart from '../../components/CongressChart'
 
-const ProjectionGroups = data => {
-  const { data: graphData } = data
+const ProjectionGroups = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
+  const deputadosFE = totalDeputados.filter((pessoa) => pessoa.projecao === true);
 
-  const totalTresFrentes = graphData.filter((pessoa) => pessoa.FPE === true || pessoa.FPC === true || pessoa.FPMA === true);
-
+  const senadoresFE = totalSenadores.filter((pessoa) => pessoa.projecao === true);
+  
   return (
     <div className="projectionGroups">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalTresFrentes} />
+          <CongressChart width={deputadosWidth} height={deputadosHeight} color="#6a7471" data={totalDeputados} highlight={deputadosFE} />
+          <div className="spacing"></div>
         </div>
         <div className="graphItem">
-          <BubbleChart width={500} height={400} data={totalTresFrentes} />
-          <span>esses 14 parlamentares não fazem parte de nenhuma das frentes religiosas</span>
+          <CongressChart width={senadoresWidth} height={senadoresHeight} color="#6a7471" data={totalSenadores} highlight={senadoresFE} />
+          <div className="spacing"></div>
         </div>
       </div>
     </div>

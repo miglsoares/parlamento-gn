@@ -1,24 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
 
+@import url('https://use.typekit.net/uav3uxl.css');
+
+html {
+  background-color: #1c2a27;
+}
+
 body {
   margin: 82px;
   padding: 0;
-  background-color: #3d3d3d;
-  font-family: 'Merriweather', serif;
+  font-family:"freight-text-pro", sans-serif;
+  line-height: 1.2;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
+@media (max-width: 767px) {
+  body {
+    margin: 0 24px;
+  }
+}
+html::-webkit-scrollbar {
+  width: 11px;
+}
+html {
+  scrollbar-width: none;
+  scrollbar-color: transparent;
+}
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 6px;
+}
+
+circle {
+  cursor: pointer;
+}
+
+.descriptions {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .descriptions {
+    flex-direction: column-reverse;
+  }
+}
+
+.graphsContainer {
+    flex-basis: 60%;
+    position: sticky;
+    width: 100%;
+    height: 60vh;
+    top: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .graphsContainer {
+    background-color: #1c2a27;
+    top: 0;
+    padding: 10px 0;
+    min-height: 340px;
+  }
+
+  .graphItem:first-child {
+    margin-bottom: 15px;
+  }
+
+  .graphs span {
+    font-size: 1rem !important;
+  }
+
+  .graphs p {
+    font-size: 0.8rem !important;
+  }
+
+  .spacing {
+    height: 47px !important;
+  }
+
+  .descriptionNumber {
+    font-size: 4rem !important;
+    margin-bottom: 0px !important;
+  }
+
+  .descriptionText {
+
+  }
+}
+
+.paragraphTop,
 .paragraph {
   color: #ffffff;
   font-size: 17px;
   line-height: 1.5;
-  max-width: 500px;
+  font-family:"freight-text-pro", sans-serif;
 }
 
 .description {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 400px 0
+  padding: 400px 0;
+  max-width: 400px;
+}
+
+@media (max-width: 767px) {
+  .description {
+    padding: 200px 0;
+  }
+}
+
+.tooltipImage {
+  width: 24px;
+  height: 24px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.imageBoxWrapper {
+  align-items: center;
+  display: flex;
+  margin: 12px 0;
+}
+
+.imageBoxWrapper .iconDescriptionNumber {
+  font-size: 22px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.imageBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 65px;
+  margin-right: 24px;
+}
+
+.imageBox img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 8px;
+}
+
+.imageBox span {
+  color: #ffffff;
+  font-family: sans-serif;
 }
 
 .descriptionNumber {
@@ -40,15 +175,49 @@ body {
   justify-content: space-between;
 }
 
+@media (max-width: 767px) {
+  .graphs {
+    flex-direction: column;
+  }
+}
+
+.graphs p {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
 .graphs span {
   color: #ffffff;
   font-weight: bold;
   font-size: 1.5rem;
 }
 
+.spacing {
+  height: 67px;
+}
+
+.spacing-sm {
+  height: 30px;
+}
+
 .graphItem {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding: 0 10px;
+  text-align: center;
+}
+
+.groupEvangelic span {
+  color: #b76f2b;
+}
+
+.GroupEvangelicWhite span {
+  color: #b76f2b;
+}
+
+.GroupEvangelicWhiteMale span {
+  color: #b76f2b;
 }

@@ -1,17 +1,22 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart'
+import CongressChart from '../../components/CongressChart'
 
-const CatholicParliamentFront = data => {
-  const { data: graphData } = data
-
-  const totalFrenteCatolica = graphData.filter((pessoa) => pessoa.FPC === true);
-  const total = graphData.filter((pessoa) => pessoa.cargo === "SENADOR");
+const CatholicParliamentFront = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
+  const deputadosFC = totalDeputados.filter((pessoa) => pessoa.FPC === true);
+  const senadoresFC = totalSenadores.filter((pessoa) => pessoa.FPC === true);
   
   return (
     <div className="catholicParliamentFront">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChart width={400} height={500} data={totalFrenteCatolica}/>
+          <CongressChart width={deputadosWidth} height={deputadosHeight} color="#6a8d82" data={totalDeputados} highlight={deputadosFC} />
+          <div className="spacing"></div>
+
+        </div>
+        <div className="graphItem">
+          <CongressChart width={senadoresWidth} height={senadoresHeight} color="#6a8d82" data={totalSenadores} highlight={senadoresFC} />
+          <div className="spacing"></div>
+
         </div>
       </div>
     </div>

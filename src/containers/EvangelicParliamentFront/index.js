@@ -1,17 +1,20 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart'
-import BubbleChartWithHighlight from '../../components/BubbleChartWithHighlight';
+import CongressChart from '../../components/CongressChart'
 
-const EvangelicParliamentFront = data => {
-  const { data: graphData } = data
-
-  const totalFrenteEvangelica = graphData.filter((pessoa) => pessoa.FPE === true);
+const EvangelicParliamentFront = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
+  const deputadosFE = totalDeputados.filter((pessoa) => pessoa.FPE === true);
+  const senadoresFE = totalSenadores.filter((pessoa) => pessoa.FPE === true);
   
   return (
     <div className="evangelicParliamentFront">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChartWithHighlight width={700} height={500} highlight={totalFrenteEvangelica} data={graphData}/>
+          <CongressChart width={deputadosWidth} height={deputadosHeight} color="#736431" data={totalDeputados} highlight={deputadosFE} />
+          <div className="spacing"></div>
+        </div>
+        <div className="graphItem">
+          <CongressChart width={senadoresWidth} height={senadoresHeight} color="#736431" data={totalSenadores} highlight={senadoresFE} />
+          <div className="spacing"></div>
         </div>
       </div>
     </div>

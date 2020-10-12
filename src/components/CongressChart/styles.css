@@ -1,13 +1,21 @@
-div.tooltip {	
+div.tooltip {
   position: absolute;
-  text-align: center;
-  width: 120px;
-  max-height: 80px;
-  padding: 2px;
-  font: 12px sans-serif;
-  background: lightgray;
+  width: 150px;
+  max-height: 200px;
+  padding: 5px 15px;
+  background: #f1f1f1;
   border: 0px;
-  border-radius: 8px;
+  border-radius: 10px;
   pointer-events: none;
-  word-wrap: wrap;
+}
+
+.tooltip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip span {
+  font-size: 14px;
 }

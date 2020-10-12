@@ -1,17 +1,20 @@
 import React from 'react'
-import BubbleChart from '../../components/BubbleChart'
+import CongressChart from '../../components/CongressChart'
 
-const AfricanParliamentFront = data => {
-  const { data: graphData } = data
-
-  const totalFrenteMatrizAfricana = graphData.filter((pessoa) => pessoa.FPMA === true);
-  const total = graphData.filter((pessoa) => pessoa.cargo === "SENADOR");
+const AfricanParliamentFront = ({totalDeputados, totalSenadores, deputadosWidth, deputadosHeight, senadoresWidth, senadoresHeight}) => {
+  const deputadosFMA = totalDeputados.filter((pessoa) => pessoa.FPMA === true);
+  const senadoresFMA = totalSenadores.filter((pessoa) => pessoa.FPMA === true);
   
   return (
     <div className="africanParliamentFront">
       <div className="graphs">
         <div className="graphItem">
-          <BubbleChart width={400} height={500} data={totalFrenteMatrizAfricana}/>
+          <CongressChart width={deputadosWidth} height={deputadosHeight} color="#904826" data={totalDeputados} highlight={deputadosFMA} />
+          <div className="spacing"></div>
+        </div>
+        <div className="graphItem">
+          <CongressChart width={senadoresWidth} height={senadoresHeight} color="#904826" data={totalSenadores} highlight={senadoresFMA} />
+          <div className="spacing"></div>
         </div>
       </div>
     </div>
